@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}注册{% endblock %}
+{{ super() }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo - 注册</title>
+    {% block style %}
+    <style>
+        .text1{
+            margin:10px
+        }
+    </style>
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+    <div class="panel panel-default" style="width: 500px; height: 260px position: absolute;top: 50%;left: 50%;">
+<form action="/register/" method="post">
+    <table>
+        <tr>
+            <td class="text1">用户名：</td>
+            <td><input class="text1" type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td class="text1">手机号：</td>
+            <td><input class="text1" type="number" name="phone"></td>
+        </tr>
+        <tr>
+            <td class="text1">密码：</td>
+            <td><input class="text1" type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td class="text1">确认密码：</td>
+            <td><input class="text1" type="password" name="confirm"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input class="text1" type="submit" value="提交"></td>
+        </tr>
+    </table>
+</form>
+    </div>
+</body>
+</html>
+{% endblock %}
