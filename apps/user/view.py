@@ -28,8 +28,16 @@ def register():
         resp.set_cookie("login", user, max_age=991800)
         return resp
     else:
+        try:
+            cookie_1 = request.cookies.get("login")
+            print(cookie_1)
+        except TypeError:
+            return render_template("register.html")
+        if cookie_1 == "false" or cookie_1 is None:
+            return render_template("register.html")
+
         print(2)
-        return render_template("register.html")
+        return render_template("main.html", name=cookie_1)
 
 
 @user_bp.route("/user/<name>/")
