@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}错误{% endblock %}
+</head>
+<body>
+{% block body %}
+<div class="alert alert-warning" role="alert">
+    {{ info }}
+</div>
+{% endblock %}
+</body>
+</html>
