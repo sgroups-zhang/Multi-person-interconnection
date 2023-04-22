@@ -15,12 +15,15 @@ def register():
             password = request.form['password']
         else:
             return render_template("error.html", info="密码不一致！")
-        with open("/data/users/user_list.json","r",encoding="utf-8") as f:
+        with open("data/users/user_list.json", "r", encoding="utf-8") as f:
             info = json.load(f)
             info = info["users"]
             if user in info:
                 return render_template("error.html", info="用户已存在")
         os.mkdir("data/users/" + user)
+        with open("data/users/user_list.json", "w", encoding="utf-8") as f:
+            info.append(user)
+            json.dump({"users": info}, f)
         with open("data/users/{}/info.json".format(user), "w", encoding="utf-8") as fp:
             data = {
                 "info": {
